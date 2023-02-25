@@ -4,7 +4,7 @@ class NotificationsActivities:
     now = datetime.now(timezone.utc).astimezone()
     results = [{
       'uuid': '68f126b0-1ceb-4a33-88be-d90fa7109eee',
-      'handle':  'andrewbrown',
+      'handle':  'Andrew Brown',
       'message': 'White unicorn!',
       'created_at': (now - timedelta(days=2)).isoformat(),
       'expires_at': (now + timedelta(days=5)).isoformat(),
@@ -20,7 +20,7 @@ class NotificationsActivities:
         'replies_count': 0,
         'reposts_count': 0,
         'created_at': (now - timedelta(days=2)).isoformat()
-      }],
+      }]
     }
     
     ]
