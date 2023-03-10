@@ -9,10 +9,9 @@ import { Auth } from 'aws-amplify';
 export default function SigninPage() {
 
   const [email, setEmail] = React.useState('');
-  const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [errors, setErrors] = React.useState('');
-  const [cognitoErrors, setCognitoErrors] = React.useState('');
+ 
 
   const onsubmit = async (event) => {
     setErrors('')
@@ -34,9 +33,7 @@ export default function SigninPage() {
   }
   
   
-  if (setErrors){
-    errors = <div className='errors'>{cognitoErrors}</div>;
-  }
+ 
   
 
   const email_onchange = (event) => {
