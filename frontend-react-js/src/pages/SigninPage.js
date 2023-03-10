@@ -17,13 +17,13 @@ export default function SigninPage() {
     setErrors('')
     event.preventDefault();
     try {
-      Auth.signIn(username, password)
+      Auth.signIn(email, password)
         .then(user => {
           localStorage.setItem("access_token", user.signInUserSession.accessToken.jwtToken)
           window.location.href = "/"
         })
-        .catch(err => { console.log('Error!', err) });
-    } catch (error) {
+        
+     } catch (error) {
       if (error.code == 'UserNotConfirmedException') {
         window.location.href = "/confirm"
       }
