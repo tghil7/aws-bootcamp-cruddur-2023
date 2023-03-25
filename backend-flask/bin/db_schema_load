@@ -1,1 +1,4 @@
 #! /usr/bin/bash
+
+echo "DB schema load"
+psql $CONNECTION_URL ; 

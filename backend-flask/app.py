@@ -85,6 +85,8 @@ def data_create_message():
 
 @app.route("/api/activities/home", methods=['GET'])
 def data_home():
+  print ('AUTH HEADER ---', file= sys.sdout)
+  print (request.headers.get('Authorization'))
   data = HomeActivities.run()
   return data, 200
 
