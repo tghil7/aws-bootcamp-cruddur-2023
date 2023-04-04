@@ -44,6 +44,8 @@ cognito_token_verification = CognitoTokenVerification(
 )
 
 
+
+
 frontend = os.getenv('FRONTEND_URL')
 backend = os.getenv('BACKEND_URL')
 origins = [frontend, backend]
@@ -63,6 +65,11 @@ def data_message_groups():
     return model['errors'], 422
   else:
     return model['data'], 200
+
+
+@app.route('/api/health-check')
+def health_check():
+  return {'success': True}, 200
 
 @app.route("/api/messages/@<string:handle>", methods=['GET'])
 def data_messages(handle):
