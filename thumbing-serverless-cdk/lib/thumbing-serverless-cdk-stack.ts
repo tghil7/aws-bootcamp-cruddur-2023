@@ -113,4 +113,3 @@ createPolicySnSPublish(topicArn: string){
 
 
 }
-
