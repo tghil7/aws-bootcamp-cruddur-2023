@@ -12,13 +12,23 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
     super(scope, id, props);
 
     // The code that defines your stack goes here
-    
-
 const bucketName: string = process.env.THUMBING_BUCKET_NAME as string;
-const bucket = new s3.Bucket(this, 'ThumbingBucket', {
-  bucketName: bucketName,
-  removalPolicy: cdk.RemovalPolicy.DESTROY,
-});
+const functionPath: string = process.env.THUMBING_FUNCTION_PATH as string;
+const folderInput: string = process.env.THUMBING_S3_FOLDER_INPUT as string;
+const folderOutput: string = process.env.THUMBING_S3_FOLDER_OUTPUT as string;
+const bucket = this.createBucket(bucketName);
+const lambda = this.createLambda(functionPath, bucketName, folderInput, folderOutput);
+
+}
+
+createBucket(bucketName: string): s3.IBucket {
+  const bucket = new s3.Bucket(this, 'ThumbingBucket', {
+    bucketName: bucketName,
+    removalPolicy: cdk.RemovalPolicy.DESTROY
+  });
+  return bucket;
+}
+
 
 createLambda(folderIntput: string, folderOutput: string, functionPath: string, bucketName: string): lambda.IFunction {
   const logicalName = 'ThumbLambda';
