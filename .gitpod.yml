@@ -17,6 +17,9 @@ tasks:
     command: |
       export GITPOD_IP=$(curl ifconfig.me)
       source  "$THEIA_WORKSPACE_ROOT/backend-flask/db-update-sg-rule"
+  - name: cdk
+    before: |
+      npm install aws-cdk-lib -g
   - name: react-js
     command: |
       cd frontend-react-js
